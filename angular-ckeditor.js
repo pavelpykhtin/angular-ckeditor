@@ -70,7 +70,7 @@
         ngModelController.$render = function syncEditor() {
           controller.ready().then(function () {
             // "noSnapshot" prevent recording an undo snapshot
-            var decodedValue = htmlDecode((ngModel.$modelValue && ngModel.$modelValue.RichText) || '');
+            var decodedValue = htmlDecode((ngModelController.$modelValue && ngModelController.$modelValue.RichText) || '');
             controller.instance.setData(decodedValue || '', {
               noSnapshot: true,
               callback: function () {
