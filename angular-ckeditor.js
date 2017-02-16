@@ -70,7 +70,8 @@
         ngModelController.$render = function syncEditor() {
           controller.ready().then(function () {
             // "noSnapshot" prevent recording an undo snapshot
-            controller.instance.setData(ngModelController.$viewValue || '', {
+            var decodedValue = htmlDecode((ngModel.$modelValue && ngModel.$modelValue.RichText) || '');
+            controller.instance.setData(decodedValue || '', {
               noSnapshot: true,
               callback: function () {
                 // Amends the top of the undo stack with the current DOM changes
